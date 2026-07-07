@@ -20,36 +20,31 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Android SDK
-        if: success()
         run: |
-          mkdir -p $ANDROID_SDK_ROOT
+          ANDROID_SDK_ROOT="$GITHUB_WORKSPACE/android-sdk"
+          mkdir -p "$ANDROID_SDK_ROOT"
           wget -O cmdline-tools.zip "https://dl.google.com/android/repository/commandline-tools-latest-linux.zip" -q
-          unzip -o cmdline-tools.zip -d $ANDROID_SDK_ROOT
-          export ANDROID_HOME=$ANDROID_SDK_ROOT
-          export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/latest/lib64
-          yes | sdkmanager --sdk_root=$ANDROID_SDK_ROOT --install "platforms;android-34" "build-tools;34.0.0" > /dev/null 2>&1
-        env:
-          ANDROID_SDK_ROOT: $GITHUB_WORKSPACE/android-sdk
+          unzip -o cmdline-tools.zip -d "$ANDROID_SDK_ROOT"
+          echo "ANDROID_HOME=$ANDROID_SDK_ROOT" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT" >> "$GITHUB_ENV"
+          yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --sdk_root="$ANDROID_SDK_ROOT" --install "platforms;android-34" "build-tools;34.0.0" > /dev/null 2>&1
 
-      - name: Grant execute permission
-        run: chmod +x gradlew
-
-      - name: Download Gradle Jar
-        if: success() || failure()
+      - name: Setup Gradle Wrapper
         run: |
-          mkdir -p gradle/wrapper
-          wget -O gradle/wrapper/gradle-wrapper.jar "https://raw.githubusercontent.com/gradle/gradle/v8.5/gradle/wrapper/gradle-wrapper.jar" -q
+          if [ ! -f gradle/wrapper/gradle-wrapper.jar ]; then
+            mkdir -p gradle/wrapper
+            wget -O gradle/wrapper/gradle-wrapper.jar "https://raw.githubusercontent.com/gradle/gradle/v8.5/gradle/wrapper/gradle-wrapper.jar" -q
+          fi
           if [ ! -f gradlew ]; then
-            echo "#!/bin/bash" > gradlew
-            echo "java -jar gradle/wrapper/gradle-wrapper.jar \$@" >> gradlew
+            echo '#!/bin/bash' > gradlew
+            echo 'exec java -jar gradle/wrapper/gradle-wrapper.jar "$@"' >> gradlew
+            chmod +x gradlew
+          else
             chmod +x gradlew
           fi
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug
-        env:
-          ANDROID_HOME: $0
-      i    ANDROID_SDK_ROOT: $GITHUB_WORKSPACE/android-sdk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
