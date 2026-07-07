@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/menu_background"
+    android:elevation="16dp"
+    android:padding="4dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quick_menu_title"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="?android:attr/textColorSecondary"
+        android:padding="12dp"
+        android:gravity="center" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <TextView
+        android:id="@+id/menu_start"
+        style="@style/QuickMenuItem"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="▶  @string/start_reading"
+        android:drawablePadding="12dp"
+        android:drawableStart="@drawable/ic_play" />
+
+    <TextView
+        android:id="@+id/menu_pause"
+        style="@style/QuickMenuItem"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="⏸  @string/pause_reading"
+        android:drawablePadding="12dp"
+        android:drawableStart="@drawable/ic_pause" />
+
+    <TextView
+        android:id="@+id/menu_resume"
+        style="@style/QuickMenuItem"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="▶  @string/resume_reading"
+        android:drawablePadding="12dp"
+        android:drawableStart="@drawable/ic_play" />
+
+    <TextView
+        android:id="@+id/menu_stop"
+        style="@style/QuickMenuItem"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="⏹  @string/stop_reading"
+        android:drawablePadding="12dp"
+        android:drawableStart="@drawable/ic_stop" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <TextView
+        android:id="@+id/menu_settings"
+        style="@style/QuickMenuItem"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="⚙  @string/open_settings"
+        android:drawablePadding="12dp"
+        android:drawableStart="@drawable/ic_settings" />
+
+</LinearLayout>
