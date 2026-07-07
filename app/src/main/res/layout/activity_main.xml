@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- App Icon -->
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_launcher_foreground"
+            android:contentDescription="App Logo" />
+
+        <!-- App Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/app_name"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary" />
+
+        <!-- Status -->
+        <TextView
+            android:id="@+id/status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            android:textColor="?android:attr/textColorSecondary"
+            android:text="Checking permissions..." />
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/darker_gray"
+            android:alpha="0.2" />
+
+        <!-- Overlay Permission -->
+        <Button
+            android:id="@+id/btn_overlay_permission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Grant Overlay Permission"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#FF5722" />
+
+        <!-- Accessibility -->
+        <Button
+            android:id="@+id/btn_accessibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Enable Accessibility Service"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#FF5722" />
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/darker_gray"
+            android:alpha="0.2" />
+
+        <!-- Start/Stop Service -->
+        <Button
+            android:id="@+id/btn_start_service"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:text="Start Service"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/primary"
+            app:cornerRadius="12dp" />
+
+        <!-- Open Settings -->
+        <Button
+            android:id="@+id/btn_open_settings"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/open_settings" />
+
+        <!-- Help Text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:padding="16dp"
+            android:background="@drawable/card_background"
+            android:text="📖 How to use:\n\n1. Grant overlay & accessibility permissions\n2. Start the service\n3. A floating button will appear\n4. Tap it to start reading any screen\n5. Double-tap to pause/resume\n6. Long-press for quick menu\n7. Tap any text on screen to read from there"
+            android:textSize="13sp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="?android:attr/textColorSecondary" />
+
+    </LinearLayout>
+
+</ScrollView>
