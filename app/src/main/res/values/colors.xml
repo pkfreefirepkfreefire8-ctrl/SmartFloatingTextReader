@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#FF4A90D9</color>
+    <color name="primaryDark">#FF2E6BA8</color>
+    <color name="accent">#FF3DACC5</color>
+    <color name="backgroundLight">#FFFAFAFA</color>
+    <color name="surfaceLight">#FFFFFFFF</color>
+    <color name="onSurfaceLight">#FF1C1B1F</color>
+    <color name="backgroundDark">#FF121212</color>
+    <color name="surfaceDark">#FF1E1E1E</color>
+    <color name="onSurfaceDark">#FFE6E1E5</color>
+    <color name="floatingButtonBg">#CC4A90D9</color>
+    <color name="floatingButtonIcon">#FFFFFFFF</color>
+    <color name="progressTrack">#334A90D9</color>
+    <color name="progressActive">#FF4A90D9</color>
+    <color name="menuBackground">#F0F8FFFB</color>
+    <color name="menuItemText">#FF1C1B1F</color>
+    <color name="divider">#1F000000</color>
+</resources>
