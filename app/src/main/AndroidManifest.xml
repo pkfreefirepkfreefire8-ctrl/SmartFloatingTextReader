@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Overlay permission for floating button -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- Required for accessibility service -->
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
+    <!-- Foreground service -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name=".SmartReaderApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SmartFloatingTextReader">
+
+        <!-- Main Settings Activity -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Settings Activity -->
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings_title" />
+
+        <!-- Floating Overlay Service -->
+        <service
+            android:name=".service.FloatingOverlayService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+
+        <!-- Accessibility Service for Screen Text Detection -->
+        <service
+            android:name=".service.ScreenReaderAccessibilityService"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+    </application>
+
+</manifest>
