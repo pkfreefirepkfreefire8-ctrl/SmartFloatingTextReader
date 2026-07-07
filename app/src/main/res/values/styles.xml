@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SmartFloatingTextReader" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="FloatingButton" parent="Widget.Material3.Button">
+        <item name="android:minWidth">56dp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:elevation">8dp</item>
+        <item name="cornerRadius">28dp</item>
+    </style>
+
+    <style name="QuickMenuItem" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textSize">14sp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:gravity">start|center_vertical</item>
+    </style>
+</resources>
